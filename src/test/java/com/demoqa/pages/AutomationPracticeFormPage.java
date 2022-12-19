@@ -3,6 +3,7 @@ package com.demoqa.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.components.CalendarComponent;
+import com.demoqa.pages.components.ResultTableComponent;
 import com.demoqa.pages.components.SelectionStateAndCity;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -13,6 +14,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class AutomationPracticeFormPage {
     CalendarComponent calendarComponent = new CalendarComponent();
     SelectionStateAndCity selectionStateAndCity = new SelectionStateAndCity();
+    ResultTableComponent resultTableComponent = new ResultTableComponent();
 
     public AutomationPracticeFormPage openPage() {
         open("/automation-practice-form");
@@ -123,7 +125,13 @@ public class AutomationPracticeFormPage {
     }
 
     public AutomationPracticeFormPage checkResultModalForm() {
-        modalForm.should(Condition.appear);
+        resultTableComponent.checkVisible();
+
+        return this;
+    }
+
+    public AutomationPracticeFormPage checkResult(String key, String value) {
+        resultTableComponent.checkResult(key, value);
 
         return this;
     }

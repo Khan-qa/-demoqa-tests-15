@@ -47,7 +47,18 @@ public class AutomationPracticeFormTests {
                 .uploadPicture(picture)
                 .setCurrentAddress(currentAddress)
                 .selectionStateAndCity(state, city)
-                .submitClick()
-                .checkResultModalForm();
+                .submitClick();
+
+        automationPracticeFormPage.checkResultModalForm()
+                .checkResult("Student Name", firstName + " " + lastName)
+                .checkResult("Student Email", email)
+                .checkResult("Gender", gender)
+                .checkResult("Mobile", phone)
+                .checkResult("Date of Birth", day + " " + month + "," + year)
+                .checkResult("Subjects", subject)
+                .checkResult("Hobbies", hobbies)
+                .checkResult("Picture", picture)
+                .checkResult("Address", currentAddress)
+                .checkResult("State and City", state + " " + city);
     }
 }
