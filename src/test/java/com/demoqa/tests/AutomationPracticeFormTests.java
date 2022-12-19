@@ -2,30 +2,14 @@ package com.demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.demoqa.pages.AutomationPracticeFormPage;
+import com.demoqa.utils.GenerateFakeData;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class AutomationPracticeFormTests {
 
-    String firstName = "Хан";
-    String lastName = "Ханов";
-    String email = "han@hanov.com";
-    String gender = "Female";
-    String phone = "7123456789";
-
-    String day = "17",
-            month = "May",
-            year = "1999";
-    String subject = "Physics";
-    String hobbies = "Sports";
-    String picture = "1.png";
-
-    String currentAddress = "Han KZ";
-
-    String state = "NCR";
-    String city = "Delhi";
-
     AutomationPracticeFormPage automationPracticeFormPage = new AutomationPracticeFormPage();
+    GenerateFakeData fakeData = new GenerateFakeData();
 
     @BeforeAll
     static void configure() {
@@ -36,17 +20,17 @@ public class AutomationPracticeFormTests {
     @Test
     void firstTest() {
         automationPracticeFormPage.openPage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(email)
-                .selectGender(gender)
-                .setPhone(phone)
-                .setCalendar(day, month, year)
-                .setSubjects(subject)
-                .selectHobbies(hobbies)
-                .uploadPicture(picture)
-                .setCurrentAddress(currentAddress)
-                .selectionStateAndCity(state, city)
+                .setFirstName(fakeData.randomFirstName)
+                .setLastName(fakeData.randomLastName)
+                .setEmail(fakeData.randomEmail)
+                .selectGender(fakeData.randomGender)
+                .setPhone(fakeData.randomPhone)
+                .setCalendar(fakeData.randomDay, fakeData.randomMonth, fakeData.randomYear)
+                .setSubjects(fakeData.randomSubject)
+                .selectHobbies(fakeData.randomHobbies)
+                .uploadPicture(fakeData.RandomPicture)
+                .setCurrentAddress(fakeData.randomCurrentAddress)
+                .selectionStateAndCity(fakeData.randomState, fakeData.randomCity)
                 .submitClick()
                 .checkResultModalForm();
     }
