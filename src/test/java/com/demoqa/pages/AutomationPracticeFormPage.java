@@ -40,27 +40,19 @@ public class AutomationPracticeFormPage {
             modalForm = $(".modal-dialog");
 
 
-    private AutomationPracticeFormPage clearForm(SelenideElement element) {
-        element.clear();
-        return this;
-    }
-
     public AutomationPracticeFormPage setFirstName(String firstName) {
-        clearForm(firstNameInput);
         firstNameInput.setValue(firstName);
 
         return this;
     }
 
     public AutomationPracticeFormPage setLastName(String lastName) {
-        clearForm(lastNameInput);
         lastNameInput.setValue(lastName);
 
         return this;
     }
 
     public AutomationPracticeFormPage setEmail(String email) {
-        clearForm(emailInput);
         emailInput.setValue(email);
 
         return this;
@@ -73,7 +65,6 @@ public class AutomationPracticeFormPage {
     }
 
     public AutomationPracticeFormPage setPhone(String phone) {
-        clearForm(phoneInput);
         phoneInput.setValue(phone);
 
         return this;
@@ -87,7 +78,6 @@ public class AutomationPracticeFormPage {
     }
 
     public AutomationPracticeFormPage setSubjects(String subject) {
-        clearForm(subjectsInput);
         subjectsInput.setValue(subject).pressEnter();
 
         return this;
@@ -106,7 +96,6 @@ public class AutomationPracticeFormPage {
     }
 
     public AutomationPracticeFormPage setCurrentAddress(String currentAddress) {
-        clearForm(currentAddressInput);
         currentAddressInput.setValue(currentAddress);
 
         return this;
